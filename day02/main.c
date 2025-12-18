@@ -9,7 +9,7 @@
 // grep -Po '\d+' day02/input.txt | wc -l
 #define MAX_POSITION_COUNT 125
 
-void parse_input(char *input, uint32_t *const positions, uint32_t *const position_count) {
+static void parse_input(char *input, uint32_t *const positions, uint32_t *const position_count) {
   uint32_t count = 0;
   for (;;) {
     switch (*input) {

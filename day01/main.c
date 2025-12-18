@@ -8,7 +8,7 @@
 
 #define MAX_MODULE_MASSES_COUNT 100
 
-void parse_input(char *input, uint32_t *const module_masses, uint32_t *module_masses_count) {
+static void parse_input(char *input, uint32_t *const module_masses, uint32_t *module_masses_count) {
   uint32_t count = 0;
   for (;;) {
     switch (*input) {
