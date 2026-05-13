@@ -77,11 +77,6 @@ typedef enum int_code_instruction {
   INT_CODE_INSTRUCTION_HALT = 99,
 } int_code_instruction;
 
-typedef enum int_code_instruction_mode {
-  INT_CODE_INSTRUCTION_MODE_POSITION = 0,
-  INT_CODE_INSTRUCTION_MODE_IMMEDIATE = 1,
-} int_code_instruction_mode;
-
 static int64_t run_intcode_machine(int64_t *const positions, const uint32_t position_count, const uint32_t input,
                                    const uint32_t output_buffer_capacity, int64_t *const output_buffer) {
   uint32_t buffer_count = 0;
