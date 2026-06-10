@@ -122,7 +122,7 @@ static uint32_t find_cycle(moons *const m, int32_t *const coordinates, int32_t *
                   "velocities array should be part of the moon system");
 
   const uint8_t count = m->count;
-  // store starting state in format: [xpos1, xpos2, ..., xposn, xvel1, xvel2, ..., xveln]
+  // store starting state in format: [xpos1, xvel1, xpos2, xvel2, ..., xposn, xveln]
   int32_t starting_state[MAX_MOONS * 2] = {0};
 
   for (uint8_t i = 0; i < count; ++i) {
