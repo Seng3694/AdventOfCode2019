@@ -1,12 +1,12 @@
 CC:=gcc
 
-CFLAGS:=-g -O0 -Wall -Wextra -std=c17 -fsanitize=undefined -fsanitize=address
+CFLAGS:=-g -O0 -Wall -Wextra -Werror -Wimplicit-function-declaration -std=c17 -fsanitize=undefined -fsanitize=address
 LDFLAGS:=-lm
 BUILD_MODE:=DEBUG
 
 ifdef release
 # exclude the unused parameter warnings for release builds for now due to some parameters only being used for assertions (debug)
-CFLAGS:=-O3 -Wall -Wextra -Wno-unused-parameter -std=c17 -DNDEBUG
+CFLAGS:=-O3 -Wall -Wextra -Werror -Wimplicit-function-declaration -Wno-unused-parameter -std=c17 -DNDEBUG
 BUILD_MODE:=RELEASE
 endif
 
