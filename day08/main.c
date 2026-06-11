@@ -38,7 +38,7 @@ static void solve_part2(char *input, const uint32_t width, const uint32_t height
   for (uint32_t y = 0; y < height; ++y) {
     const uint32_t y_offset = y * width;
     for (uint32_t x = 0; x < width; ++x) {
-      for (int32_t l = 0; l < layers; ++l) {
+      for (uint32_t l = 0; l < layers; ++l) {
         const uint32_t index = l * image_size + y_offset + x;
         if (input[index] != '2') {
           putchar(input[index] == '0' ? '.' : '#');
