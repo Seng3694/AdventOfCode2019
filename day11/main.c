@@ -32,8 +32,8 @@ static inline bool point_equals(const point a, const point b) {
 #define TLBT_KEY_T point
 #define TLBT_VALUE_T color
 #define TLBT_STATIC
-#define TLBT_HASH_FUNC point_hash
-#define TLBT_EQUALS_FUNC point_equals
+#define TLBT_HASH point_hash
+#define TLBT_EQUALS point_equals
 #define TLBT_BASE2_CAPACITY
 #include "../ext/toolbelt/src/hashmap.h"
 
@@ -125,18 +125,18 @@ void solve_part2(int64_t *const code, const uint32_t code_count, tlbt_map_point_
 
   tlbt_map_iterator_point_color iter = {0};
   tlbt_map_iterator_point_color_init(&iter, painted);
-  point *key = NULL;
-  color *value = NULL;
+  point key;
+  color value;
 
   while (tlbt_map_iterator_point_color_iterate(&iter, &key, &value)) {
-    if (key->x < left)
-      left = key->x;
-    if (key->x > right)
-      right = key->x;
-    if (key->y < top)
-      top = key->y;
-    if (key->y > bottom)
-      bottom = key->y;
+    if (key.x < left)
+      left = key.x;
+    if (key.x > right)
+      right = key.x;
+    if (key.y < top)
+      top = key.y;
+    if (key.y > bottom)
+      bottom = key.y;
   }
 
   const int64_t left_offset = -left;
@@ -150,10 +150,10 @@ void solve_part2(int64_t *const code, const uint32_t code_count, tlbt_map_point_
   uint64_t area[32] = {0};
   tlbt_map_iterator_point_color_reset(&iter);
   while (tlbt_map_iterator_point_color_iterate(&iter, &key, &value)) {
-    if (*value == COLOR_BLACK)
+    if (value == COLOR_BLACK)
       continue;
-    const uint32_t x = key->x + left_offset;
-    const uint32_t y = key->y + top_offset;
+    const uint32_t x = key.x + left_offset;
+    const uint32_t y = key.y + top_offset;
     const uint32_t global_index = y * width + x;
     const uint32_t array_index = global_index / 64;
     const uint32_t bit_index = global_index % 64;

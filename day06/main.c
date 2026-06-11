@@ -42,8 +42,8 @@ static inline bool space_object_id_equals(space_object_id left, space_object_id 
 #define TLBT_VALUE_T space_object *
 #define TLBT_VALUE_T_NAME obj_ptr
 #define TLBT_BASE2_CAPACITY
-#define TLBT_HASH_FUNC space_object_id_hash
-#define TLBT_EQUALS_FUNC space_object_id_equals
+#define TLBT_HASH space_object_id_hash
+#define TLBT_EQUALS space_object_id_equals
 #define TLBT_STATIC
 #include "../ext/toolbelt/src/hashmap.h"
 

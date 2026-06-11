@@ -24,6 +24,7 @@ typedef enum int_code_instruction {
 #define TLBT_T int64_t
 #define TLBT_T_NAME i64
 #define TLBT_BASE2_CAPACITY
+#define TLBT_NO_SORT
 #define TLBT_STATIC
 #include "../ext/toolbelt/src/deque.h"
 

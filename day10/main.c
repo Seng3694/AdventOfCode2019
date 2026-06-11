@@ -67,8 +67,8 @@ static inline bool point_equals(const point a, const point b) {
 
 #define TLBT_KEY_T point
 #define TLBT_STATIC
-#define TLBT_HASH_FUNC point_hash
-#define TLBT_EQUALS_FUNC point_equals
+#define TLBT_HASH point_hash
+#define TLBT_EQUALS point_equals
 #define TLBT_BASE2_CAPACITY
 #include "../ext/toolbelt/src/hashmap.h"
 
