@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
-#include <ctype.h>
 #include <string.h>
 
-#include "../ext/toolbelt/src/assert.h"
 #include "../common/fileutils.h"
 #include "../common/intcode.h"
 
