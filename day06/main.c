@@ -24,17 +24,18 @@ typedef struct space_object {
 // grep -Po '[^\)]{3}' day06/input.txt | sort -u | wc -l -> 2094 unique space_objects
 #define MAX_SPACE_OBJECTS 2100
 
-static inline uint32_t space_object_id_hash(space_object_id x) {
-  x.id ^= x.id >> 16;
-  x.id *= 0x7feb352dU;
-  x.id ^= x.id >> 15;
-  x.id *= 0x846ca68bU;
-  x.id ^= x.id >> 16;
-  return x.id;
+static inline uint32_t space_object_id_hash(const space_object_id *const x) {
+  uint32_t hash = x->id ^ (x->id >> 16);
+  hash ^= hash >> 16;
+  hash *= 0x7feb352dU;
+  hash ^= hash >> 15;
+  hash *= 0x846ca68bU;
+  hash ^= hash >> 16;
+  return hash;
 }
 
-static inline bool space_object_id_equals(space_object_id left, space_object_id right) {
-  return left.id == right.id;
+static inline bool space_object_id_equals(const space_object_id *const left, const space_object_id *const right) {
+  return left->id == right->id;
 }
 
 #define TLBT_KEY_T space_object_id
@@ -42,8 +43,8 @@ static inline bool space_object_id_equals(space_object_id left, space_object_id 
 #define TLBT_VALUE_T space_object *
 #define TLBT_VALUE_T_NAME obj_ptr
 #define TLBT_BASE2_CAPACITY
-#define TLBT_HASH space_object_id_hash
-#define TLBT_EQUALS space_object_id_equals
+#define TLBT_HASH_REF space_object_id_hash
+#define TLBT_EQUALS_REF space_object_id_equals
 #define TLBT_STATIC
 #include "../ext/toolbelt/src/hashmap.h"
 
