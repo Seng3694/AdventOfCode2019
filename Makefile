@@ -5,8 +5,8 @@ LDFLAGS:=-lm
 BUILD_MODE:=DEBUG
 
 ifdef release
-# exclude the unused parameter warnings for release builds for now due to some parameters only being used for assertions (debug)
-CFLAGS:=-O3 -Wall -Wextra -Werror -Wimplicit-function-declaration -Wno-unused-parameter -std=c17 -DNDEBUG
+# exclude the unused parameter/variable warnings for release builds for now due to some parameters only being used for assertions (debug)
+CFLAGS:=-O3 -Wall -Wextra -Werror -Wimplicit-function-declaration -Wno-unused-variable -Wno-unused-parameter -std=c17 -DNDEBUG
 BUILD_MODE:=RELEASE
 endif
 
